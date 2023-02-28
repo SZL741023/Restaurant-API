@@ -2,7 +2,7 @@ from django.urls import path, include
 
 # from .views import MenuItemView, SingleMenuItemView, CartView, OrderView, UserView
 # from .views import MenuItemView, SingleMenuItemView, UserView, DeliveryCrewView, DeliveryCrewDeleteView, CartView
-from .views import MenuItemView, SingleMenuItemView, ManagerUserView, ManagerSingleUserVeiw, ManagerDeliveryCrewView, ManagerSingleDeliveryCrewVeiw, CartView
+from .views import MenuItemView, SingleMenuItemView, ManagerUserView, ManagerSingleUserVeiw, ManagerDeliveryCrewView, ManagerSingleDeliveryCrewVeiw, CartView, OrderView, SingleOrderView
 
 urlpatterns = [
     path('menu-items', MenuItemView.as_view()),
@@ -13,6 +13,6 @@ urlpatterns = [
     path('groups/delivery-crew/users/<int:pk>',
          ManagerSingleDeliveryCrewVeiw.as_view()),
     path('cart/menu-items', CartView.as_view()),
-    # path('orders', OrderView.as_view()),
-    # path('orders/<int:pk>', OrderView.as_view()),
+    path('orders', OrderView.as_view()),
+    path('orders/<int:pk>', SingleOrderView.as_view()),
 ]

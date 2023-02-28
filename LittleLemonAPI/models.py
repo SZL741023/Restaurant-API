@@ -18,7 +18,7 @@ class MenuItem(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.title
+        return f'{self.category.title}:     {self.title}        price:        {self.price}'
 
 
 class Cart(models.Model):
@@ -38,7 +38,7 @@ class Order(models.Model):
                                       on_delete=models.SET_NULL,
                                       related_name="delivery_crew",
                                       null=True)
-    status = models.BooleanField(db_index=True)
+    status = models.BooleanField(db_index=True, default=0)
     total = models.DecimalField(max_digits=6, decimal_places=2)
     date = models.DateField(db_index=True)
 
